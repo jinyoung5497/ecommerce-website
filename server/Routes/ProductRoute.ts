@@ -1,9 +1,9 @@
 const express = require('express')
-const { getBoards } = require('../controllers/BoardController')
+const { getProducts } = require('../controllers/ProductController')
 
 const router = express.Router()
 
 // GET all Boards
-router.get('/data', getBoards)
+router.get('/:id', getProducts)
 
 module.exports = router

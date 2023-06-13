@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from 'express'
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const boardRoute = require('./Routes/boardRoute')
+const productRoute = require('./Routes/ProductRoute')
 // express app
 const app = express()
 app.use(cors())
@@ -19,7 +19,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 })
 
 // routes
-app.use('/api/product', boardRoute)
+app.use('/api/product', productRoute)
 
 // connect to db
 mongoose
