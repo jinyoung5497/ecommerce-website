@@ -1,8 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply font-bold;
+    @apply text-[56px];
+    @apply uppercase;
+    @apply leading-[58px];
+    @apply tracking-[2px];
+  }
+  h2 {
+    @apply font-bold;
+    @apply text-[40px];
+    @apply uppercase;
+    @apply leading-[44px];
+    @apply tracking-[1.5px];
+  }
+  h3 {
+    @apply font-bold;
+    @apply text-[32px];
+    @apply uppercase;
+    @apply leading-[36px];
+    @apply tracking-[1.15px];
+  }
+  h4 {
+    @apply font-bold;
+    @apply text-[28px];
+    @apply uppercase;
+    @apply leading-[38px];
+    @apply tracking-[2px];
+  }
+  h5 {
+    @apply font-bold;
+    @apply text-[24px];
+    @apply uppercase;
+    @apply leading-[33px];
+    @apply tracking-[1.7px];
+  }
+  h6 {
+    @apply font-bold;
+    @apply text-[18px];
+    @apply uppercase;
+    @apply leading-[24px];
+    @apply tracking-[1.3px];
+  }
+  body {
+    @apply font-medium;
+    @apply text-[15px];
+    @apply leading-[25px];
+  }
+}
+
+@layer components {
+  .overlines {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 10px;
+    color: theme('colors.orange');
+  }
+  .subtitle {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    color: theme('colors.orange');
+  }
+}
+
 html body #root {
+  font-family: 'Manrope', sans-serif;
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
+  /* background-color: #101010; */
 }
