@@ -6,7 +6,7 @@ import shoppingCart from '../assets/shared/desktop/icon-cart.svg'
 export default function Navbar() {
   return (
     <>
-      <div className='sticky top-0 z-10'>
+      <div className='sticky top-0 z-50'>
         <div className='px-80 bg-black-light text-white h-24 flex items-center justify-between  '>
           <img src={logo} alt='logo' />
           <div className='flex gap-10 mr-10 text-[14px]'>
