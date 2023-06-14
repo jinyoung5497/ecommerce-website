@@ -5,7 +5,7 @@ export default function Headphone() {
   return (
     <>
       <div>
-        <div>
+        <div className='bg-black-light text-white flex items-center justify-center h-60'>
           <h1>headphones</h1>
         </div>
         <div className='grid grid-cols-2 grid-rows-3'>

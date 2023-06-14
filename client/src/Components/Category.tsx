@@ -9,7 +9,7 @@ export default function Recommend() {
   return (
     <>
       <div className='flex items-center justify-center my-40 gap-10 w-full'>
-        <NavLink to='headphone'>
+        <NavLink to='/headphone'>
           <div className='bg-gray rounded-xl w-96 h-56 flex flex-col items-center justify-center cursor-pointer'>
             <img
               src={headphone}
@@ -25,7 +25,7 @@ export default function Recommend() {
             </div>
           </div>
         </NavLink>
-        <NavLink to='speaker'>
+        <NavLink to='/speaker'>
           <div className='bg-gray rounded-xl w-96 h-56 flex flex-col items-center justify-center cursor-pointer'>
             <img src={speaker} alt='speaker' className='w-60 relative -top-4' />
             <div className='relative bottom-12'>
@@ -37,7 +37,7 @@ export default function Recommend() {
             </div>
           </div>
         </NavLink>
-        <NavLink to='earphone'>
+        <NavLink to='/earphone'>
           <div className='bg-gray rounded-xl w-96 h-56 flex flex-col items-center justify-center cursor-pointer'>
             <img
               src={earphone}
