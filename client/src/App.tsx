@@ -19,12 +19,14 @@ import {
 function App() {
   return (
     <>
+      <Cart />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='headphone' element={<Headphone />} />
         <Route path='speaker' element={<Speaker />} />
         <Route path='earphone' element={<Earphone />} />
+        <Route path='seeProduct' element={<SeeProduct />} />
       </Routes>
       <Footer />
     </>

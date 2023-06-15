@@ -8,8 +8,8 @@ import instagram from '../assets/shared/desktop/icon-instagram.svg'
 export default function Footer() {
   return (
     <>
-      <div className='h-96 bg-black-light flex p-20'>
-        <div className='w-1/2'>
+      <div className='h-96 bg-black-light flex p-20 w-full'>
+        <div className='flex-1 w-1/2 overflow-hidden'>
           <img src={logo} alt='logo' className='mb-10' />
           <p className='text-zinc-500 whitespace-pre-line mr-20 mb-16 text-lg'>
             Audiophile is an all in one stop to fulfil your audio needs. We're a
@@ -21,7 +21,7 @@ export default function Footer() {
             Copyright 2021. All Rights Reserved
           </p>
         </div>
-        <div className='w-1/2 flex items-end flex-col'>
+        <div className='flex-1 w-1/2 flex items-end flex-col'>
           <div className='flex gap-10 text-[14px] mb-32'>
             <NavLink
               to='/'

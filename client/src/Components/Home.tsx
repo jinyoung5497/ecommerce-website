@@ -12,7 +12,7 @@ export default function Home() {
       {/* HERO */}
       <div className='h-fit bg-white-off w-fit grid grid-cols-1 grid-rows-1 '>
         <img src={hero} alt='hero' className=' w-fit row-start-1 col-start-1' />
-        <div className='w-96 h-full ml-80 row-start-1 col-start-1 flex flex-col justify-center'>
+        <div className='w-96 max-w-fit h-full ml-80 row-start-1 col-start-1 flex flex-col justify-center'>
           <p className='text-white overlines mb-5'>new product</p>
           <h1 className='text-white mb-10'>xx99 mark ii headphones</h1>
           <p className='text-gray mb-10 mr-5'>
