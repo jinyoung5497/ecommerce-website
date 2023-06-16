@@ -21,7 +21,7 @@ export default function Recommend() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center mx-32'>
+      <div className='flex flex-col items-center justify-center mx-52 my-10'>
         <h2 className='mb-10'>you may also like</h2>
         <div className='flex items-start justify-center gap-32'>
           {products.recommend.map((value: Irecommend, index: number) => {

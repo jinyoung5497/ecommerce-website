@@ -13,7 +13,9 @@ interface Irecommend {
 
 interface Icart {
   counter: number
-  id: string
+  name: string
+  image: string
+  price: number
 }
 
 interface productState {
@@ -35,6 +37,8 @@ interface productState {
     recommend: Irecommend[]
     cart: Icart[]
     cartDisplay: boolean
+    counter: number
+    total: number
   }
 }
 
@@ -57,7 +61,14 @@ const initialState: productState = {
     recommend: [],
     cart: [],
     cartDisplay: false,
+    counter: 1,
+    total: 0,
   },
+}
+
+interface indexCounter {
+  index: number
+  counter: number
 }
 
 export const productSlice = createSlice({
@@ -112,8 +123,35 @@ export const productSlice = createSlice({
     cart: (state, action: PayloadAction<Icart>) => {
       state.value.cart.push(action.payload)
     },
+    cartCounter: (state, action: PayloadAction<indexCounter>) => {
+      const { index, counter } = action.payload
+      state.value.cart[index].counter = counter
+    },
     cartDisplay: (state) => {
       state.value.cartDisplay = !state.value.cartDisplay
+    },
+    addCounter: (state) => {
+      ++state.value.counter
+    },
+    subCounter: (state) => {
+      state.value.counter > 1 && --state.value.counter
+    },
+    resetCounter: (state) => {
+      state.value.counter = 1
+    },
+    total: (state) => {
+      state.value.cart.forEach((value) => {
+        state.value.total += Number(value.price * value.counter)
+        console.log(state.value.total)
+      })
+    },
+    totalAdd: (state, action: PayloadAction<indexCounter>) => {
+      const { index, counter } = action.payload
+      state.value.total += Number(state.value.cart[index].price)
+    },
+    totalSub: (state, action: PayloadAction<indexCounter>) => {
+      const { index, counter } = action.payload
+      state.value.total -= Number(state.value.cart[index].price)
     },
   },
 })
@@ -136,5 +174,12 @@ export const {
   recommend,
   cart,
   cartDisplay,
+  addCounter,
+  subCounter,
+  resetCounter,
+  cartCounter,
+  totalAdd,
+  totalSub,
+  total,
 } = productSlice.actions
 export default productSlice.reducer

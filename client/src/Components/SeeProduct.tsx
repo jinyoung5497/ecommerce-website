@@ -18,13 +18,16 @@ import {
   id,
   recommend,
   cart,
+  addCounter,
+  subCounter,
+  resetCounter,
+  total,
 } from '../slices/productSlice'
 
 export default function SeeProduct() {
   const dispatch = useDispatch()
   const products = useSelector((state: RootState) => state.products.value)
   const navigate = useNavigate()
-  const [counter, setCounter] = useState(1)
 
   interface IrecommendImage {
     image: {
@@ -58,6 +61,7 @@ export default function SeeProduct() {
         const gal3 = res.data.gallery.third.desktop.slice(1)
         dispatch(gallery3(`src${gal3}`))
         dispatch(id(res.data.id))
+        console.log(res.data)
       })
       .catch((error) => {
         console.error(error)
@@ -88,15 +92,24 @@ export default function SeeProduct() {
         console.error(error)
       })
     window.scrollTo({ top: 0 })
-    setCounter(1)
+    dispatch(resetCounter())
   }, [products.getProductId])
 
   const addToCart = () => {
-    console.log('add to cart')
-    console.log(counter)
-    console.log(products.getProductId)
-    dispatch(cart({ counter: counter, id: products.getProductId }))
+    dispatch(
+      cart({
+        counter: products.counter,
+        name: products.name,
+        image: products.image,
+        price: products.price,
+      })
+    )
   }
+
+  useEffect(() => {
+    dispatch(total())
+    console.log(products.cart)
+  }, [products.cart])
 
   return (
     <>
@@ -121,14 +134,16 @@ export default function SeeProduct() {
               <div className='text-white bg-zinc-300 hover:bg-zinc-200  subtitle  mr-5 flex items-center justify-center'>
                 <button
                   className='p-4 px-6 text-zinc-400'
-                  onClick={() => setCounter((prev) => prev + 1)}
+                  onClick={() => dispatch(addCounter())}
                 >
                   +
                 </button>
-                <div className='cursor-pointer text-black'>{counter}</div>
+                <div className='cursor-pointer text-black'>
+                  {products.counter}
+                </div>
                 <button
                   className='p-4 px-6 text-zinc-400'
-                  onClick={() => counter > 1 && setCounter((prev) => prev - 1)}
+                  onClick={() => dispatch(subCounter())}
                 >
                   -
                 </button>
