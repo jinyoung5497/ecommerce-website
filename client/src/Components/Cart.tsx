@@ -9,7 +9,11 @@ import {
   cartCounter,
   totalAdd,
   totalSub,
+  emptyCart,
+  vat,
+  grandTotal,
 } from '../slices/productSlice'
+import { NavLink } from 'react-router-dom'
 
 export default function Cart() {
   const dispatch = useDispatch()
@@ -59,13 +63,18 @@ export default function Cart() {
   useEffect(() => {
     if (initRefresh.current) {
       dispatch(cartCounter({ index: index, counter: counter }))
-      // dispatch(totalAdd({ index: index, counter: counter }))
-      // dispatch(totalSub({ index: index, counter: counter }))
       console.log(counter)
     } else {
       initRefresh.current = true
     }
   }, [toggle, index])
+
+  const checkout = () => {
+    console.log('checkout')
+    dispatch(cartDisplay())
+    dispatch(vat())
+    dispatch(grandTotal())
+  }
 
   return (
     <>
@@ -75,29 +84,39 @@ export default function Cart() {
         } bg-[#00000046] w-full h-full fixed top-0 z-50`}
       >
         <div
-          className='flex flex-col w-96 justify-center items-start p-10 bg-white rounded-3xl absolute top-28 right-40'
+          className='flex flex-col w-[28rem] justify-center items-start p-10 bg-white rounded-3xl absolute top-28 right-40'
           ref={modalRef}
         >
-          <div>
+          <div className='flex w-full items-center justify-between mb-3'>
             <h6>cart({products.cart.length})</h6>
-            <button>Remove all</button>
+            <button
+              className='text-zinc-500 underline'
+              onClick={() => dispatch(emptyCart())}
+            >
+              Remove all
+            </button>
           </div>
           {products.cart.map((value, index) => {
             return (
-              <div key={index} className='flex items-center justify-between'>
+              <div
+                key={index}
+                className='flex items-center justify-between h-24 w-full'
+              >
                 <img
                   src={value.image}
                   alt='product image'
-                  className='h-20 rounded-xl'
+                  className='h-16 rounded-xl'
                 />
-                <div>
-                  <div>{value.name}</div>
-                  <div>${value.price}</div>
+                <div className='flex flex-col items-start justify-start w-full ml-3'>
+                  <div className='font-bold'>{value.name}</div>
+                  <div className='font-bold text-zinc-400'>
+                    $ {value.price.toLocaleString()}
+                  </div>
                 </div>
-                <div>
+                <div className=''>
                   <div className='text-white bg-zinc-300 hover:bg-zinc-200  subtitle flex items-center justify-center'>
                     <button
-                      className='p-4 px-6 text-zinc-400'
+                      className='p-1 px-4 text-zinc-400'
                       onClick={() => add(index)}
                     >
                       +
@@ -106,7 +125,7 @@ export default function Cart() {
                       {products.cart[index].counter}
                     </div>
                     <button
-                      className='p-4 px-6 text-zinc-400'
+                      className='p-1 px-4 text-zinc-400'
                       onClick={() => sub(index)}
                     >
                       -
@@ -116,13 +135,17 @@ export default function Cart() {
               </div>
             )
           })}
-          <div>
-            <p>TOTAL</p>
-            <h6>${products.total}</h6>
+          <div className='flex w-full items-center justify-between mt-5'>
+            <p className='text-zinc-500 text-lg'>TOTAL</p>
+            <h6>${products.total.toLocaleString()}</h6>
           </div>
-          <button className='text-white bg-orange hover:bg-orange-light p-4 subtitle px-5'>
+          <NavLink
+            to={'/checkout'}
+            className='text-white bg-orange hover:bg-orange-light p-3 subtitle px-5 w-full mt-5 text-center'
+            onClick={checkout}
+          >
             checkout
-          </button>
+          </NavLink>
         </div>
       </div>
     </>

@@ -5,8 +5,20 @@ import speaker1 from '../assets/home/desktop/image-speaker-zx9.png'
 import pattern from '../assets/home/desktop/pattern-circles.svg'
 import speaker2 from '../assets/home/desktop/image-speaker-zx7.jpg'
 import earphone from '../assets/home/desktop/image-earphones-yx1.jpg'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../slices/store'
+import { getProductId } from '../slices/productSlice'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+  const dispatch = useDispatch()
+  const products = useSelector((state: RootState) => state.products.value)
+  const navigate = useNavigate()
+
+  const seeProduct = (id: string) => {
+    dispatch(getProductId(id))
+    navigate('/seeProduct')
+  }
   return (
     <>
       {/* HERO */}
@@ -19,7 +31,10 @@ export default function Home() {
             Experience natural, lifelike audio and exceptional build quality
             made fro the passionate music enthusiast.
           </p>
-          <button className='text-white bg-orange hover:bg-orange-light p-4 subtitle px-5'>
+          <button
+            className='text-white bg-orange hover:bg-orange-light p-4 subtitle px-5'
+            onClick={() => seeProduct('6487ccb5ca8382e9725d6078')}
+          >
             SEE PRODUCT
           </button>
         </div>
@@ -48,7 +63,10 @@ export default function Home() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <button className='text-white bg-black hover:bg-black-light p-4 subtitle px-5'>
+            <button
+              className='text-white bg-black hover:bg-black-light p-4 subtitle px-5'
+              onClick={() => seeProduct('6487ccb5ca8382e9725d607a')}
+            >
               see product
             </button>
           </div>
@@ -56,7 +74,10 @@ export default function Home() {
         <div className='grid grid-cols-1 grid-rows-1 rounded-xl overflow-hidden items-center w-full mb-16'>
           <div className='row-start-1 col-start-1 z-10 ml-20'>
             <h3 className='mb-5'>ZX7 speaker</h3>
-            <button className='text-black border-black border-2 hover:bg-black-light p-3 subtitle px-5'>
+            <button
+              className='text-black border-black border-2 hover:bg-black-light p-3 subtitle px-5'
+              onClick={() => seeProduct('6487ccb5ca8382e9725d6079')}
+            >
               see product
             </button>
           </div>
@@ -74,7 +95,10 @@ export default function Home() {
           />
           <div className='bg-gray w-full h-full rounded-xl flex flex-col items-start justify-center p-20'>
             <h3>yx1 earphones</h3>
-            <button className='text-black border-black border-2 p-3 mt-5 subtitle px-5'>
+            <button
+              className='text-black border-black border-2 p-3 mt-5 subtitle px-5'
+              onClick={() => seeProduct('6487ccb5ca8382e9725d6075')}
+            >
               see product
             </button>
           </div>

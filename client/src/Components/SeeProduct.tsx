@@ -49,7 +49,7 @@ export default function SeeProduct() {
         dispatch(newProduct(res.data.new))
         dispatch(name(res.data.name))
         dispatch(description(res.data.description))
-        const newPrice = res.data.price.toLocaleString()
+        const newPrice = res.data.price
         dispatch(price(newPrice))
         dispatch(image(`src${newSrc}`))
         dispatch(features(res.data.features))
@@ -111,10 +111,16 @@ export default function SeeProduct() {
     console.log(products.cart)
   }, [products.cart])
 
+  const goBack = () => {
+    navigate(-1)
+  }
+
   return (
     <>
       <div>
-        <button>Go back</button>
+        <button className='text-zinc-500 mt-20 ml-28' onClick={goBack}>
+          Go back
+        </button>
         <div className='flex items-center justify-center gap-32 m-20'>
           <img
             src={products.image}
@@ -129,7 +135,7 @@ export default function SeeProduct() {
             <p className='text-zinc-500 text-lg leading-8'>
               {products.description}
             </p>
-            <h5 className='my-10'>{`$ ${products.price}`}</h5>
+            <h5 className='my-10'>{`$ ${products.price.toLocaleString()}`}</h5>
             <div className='flex items-center justify-start'>
               <div className='text-white bg-zinc-300 hover:bg-zinc-200  subtitle  mr-5 flex items-center justify-center'>
                 <button

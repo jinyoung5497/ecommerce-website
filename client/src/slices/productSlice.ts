@@ -39,6 +39,10 @@ interface productState {
     cartDisplay: boolean
     counter: number
     total: number
+    emoney: boolean
+    cash: boolean
+    vat: number
+    grandTotal: number
   }
 }
 
@@ -63,6 +67,10 @@ const initialState: productState = {
     cartDisplay: false,
     counter: 1,
     total: 0,
+    emoney: true,
+    cash: false,
+    vat: 0,
+    grandTotal: 0,
   },
 }
 
@@ -140,6 +148,7 @@ export const productSlice = createSlice({
       state.value.counter = 1
     },
     total: (state) => {
+      state.value.total = 0
       state.value.cart.forEach((value) => {
         state.value.total += Number(value.price * value.counter)
         console.log(state.value.total)
@@ -152,6 +161,20 @@ export const productSlice = createSlice({
     totalSub: (state, action: PayloadAction<indexCounter>) => {
       const { index, counter } = action.payload
       state.value.total -= Number(state.value.cart[index].price)
+    },
+    emptyCart: (state) => {
+      state.value.cart = []
+      state.value.total = 0
+    },
+    checkbox: (state) => {
+      state.value.emoney = !state.value.emoney
+      state.value.cash = !state.value.cash
+    },
+    vat: (state) => {
+      state.value.vat = Math.round(state.value.total * 0.2)
+    },
+    grandTotal: (state) => {
+      state.value.grandTotal = state.value.total + 50
     },
   },
 })
@@ -181,5 +204,9 @@ export const {
   totalAdd,
   totalSub,
   total,
+  emptyCart,
+  checkbox,
+  vat,
+  grandTotal,
 } = productSlice.actions
 export default productSlice.reducer
