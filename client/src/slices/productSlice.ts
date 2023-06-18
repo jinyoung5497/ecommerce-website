@@ -43,6 +43,7 @@ interface productState {
     cash: boolean
     vat: number
     grandTotal: number
+    orderDisplay: boolean
   }
 }
 
@@ -71,6 +72,7 @@ const initialState: productState = {
     cash: false,
     vat: 0,
     grandTotal: 0,
+    orderDisplay: false,
   },
 }
 
@@ -176,6 +178,9 @@ export const productSlice = createSlice({
     grandTotal: (state) => {
       state.value.grandTotal = state.value.total + 50
     },
+    orderDisplay: (state) => {
+      state.value.orderDisplay = !state.value.orderDisplay
+    },
   },
 })
 
@@ -208,5 +213,6 @@ export const {
   checkbox,
   vat,
   grandTotal,
+  orderDisplay,
 } = productSlice.actions
 export default productSlice.reducer

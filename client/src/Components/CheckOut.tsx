@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../slices/store'
 import { useNavigate } from 'react-router-dom'
-import { checkbox } from '../slices/productSlice'
+import { checkbox, orderDisplay } from '../slices/productSlice'
 
 export default function CheckOut() {
   const dispatch = useDispatch()
@@ -11,6 +11,10 @@ export default function CheckOut() {
 
   const goBack = () => {
     navigate(-1)
+  }
+
+  const orderComplete = () => {
+    dispatch(orderDisplay())
   }
 
   return (
@@ -172,7 +176,10 @@ export default function CheckOut() {
                 ${products.grandTotal.toLocaleString()}
               </h6>
             </div>
-            <button className='text-white bg-orange hover:bg-orange-light p-3 subtitle px-5 w-full mt-8 text-center'>
+            <button
+              className='text-white bg-orange hover:bg-orange-light p-3 subtitle px-5 w-full mt-8 text-center'
+              onClick={orderComplete}
+            >
               continue & pay
             </button>
           </div>

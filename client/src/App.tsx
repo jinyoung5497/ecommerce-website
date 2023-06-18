@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import {
-  BestGear,
   Cart,
-  Category,
   CheckOut,
   Earphone,
   Footer,
@@ -11,7 +9,6 @@ import {
   Home,
   Headphone,
   OrderComplete,
-  Recommend,
   SeeProduct,
   Speaker,
 } from './Components'
@@ -19,6 +16,7 @@ import {
 function App() {
   return (
     <>
+      <OrderComplete />
       <Cart />
       <Navbar />
       <Routes>
