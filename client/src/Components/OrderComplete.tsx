@@ -76,7 +76,7 @@ export default function OrderComplete() {
                   </div>
                 )
               })}
-              <button>View less</button>
+              <button className=''>View less</button>
             </div>
             <div className='flex-1 bg-black flex flex-col p-5 h-full'>
               <p className='text-zinc-500 font-bold'>GRAND TOTAL</p>
