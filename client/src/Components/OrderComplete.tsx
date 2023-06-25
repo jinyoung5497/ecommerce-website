@@ -82,7 +82,7 @@ export default function OrderComplete() {
                     </div>
                   )
                 })
-              ) : (
+              ) : products.cart.length == 1 ? (
                 <div className='flex items-center justify-between w-full'>
                   <img
                     src={products.cart[0].image}
@@ -99,7 +99,12 @@ export default function OrderComplete() {
                     X{products.cart[0].counter}
                   </p>
                 </div>
+              ) : (
+                <div className='flex items-center justify-between w-full'>
+                  There is no item in the cart
+                </div>
               )}
+              {/* view items */}
               {products.cart.length !== 1 && (
                 <div className='w-full flex flex-col'>
                   <div className='border-b-[1px] border-zinc-300 w-full mt-3'></div>
@@ -111,12 +116,14 @@ export default function OrderComplete() {
                       View less
                     </button>
                   ) : (
-                    <button
-                      className='font-bold text-zinc-500 mt-4'
-                      onClick={viewItems}
-                    >
-                      and {products.cart.length - 1} other items
-                    </button>
+                    products.cart.length > 1 && (
+                      <button
+                        className='font-bold text-zinc-500 mt-4'
+                        onClick={viewItems}
+                      >
+                        and {products.cart.length - 1} other items
+                      </button>
+                    )
                   )}
                 </div>
               )}
