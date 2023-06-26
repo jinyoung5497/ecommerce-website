@@ -83,7 +83,7 @@ export default function OrderComplete() {
                   )
                 })
               ) : products.cart.length == 1 ? (
-                <div className='flex items-center justify-between w-full'>
+                <div className='flex items-center justify-between w-full '>
                   <img
                     src={products.cart[0].image}
                     alt='product image'
