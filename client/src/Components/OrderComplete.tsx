@@ -87,7 +87,7 @@ export default function OrderComplete() {
                   <img
                     src={products.cart[0].image}
                     alt='product image'
-                    className='h-16 rounded-xl'
+                    className='h-16 rounded-xl '
                   />
                   <div className='flex flex-col items-start justify-start w-full ml-5'>
                     <div className='font-bold'>{products.cart[0].name}</div>
