@@ -70,7 +70,6 @@ export default function Cart() {
   }, [toggle, index])
 
   const checkout = () => {
-    console.log('checkout')
     dispatch(cartDisplay())
     dispatch(vat())
     dispatch(grandTotal())
@@ -140,13 +139,16 @@ export default function Cart() {
             <p className='text-zinc-500 text-lg'>TOTAL</p>
             <h6>${products.total.toLocaleString()}</h6>
           </div>
-          <NavLink
-            to={'/checkout'}
-            className='text-white bg-orange hover:bg-orange-light p-3 subtitle px-5 w-full mt-5 text-center'
-            onClick={checkout}
-          >
-            checkout
-          </NavLink>
+
+          {products.cart.length > 0 && (
+            <NavLink
+              to={'/checkout'}
+              className='text-white bg-orange hover:bg-orange-light p-3 subtitle px-5 w-full mt-5 text-center'
+              onClick={checkout}
+            >
+              checkout
+            </NavLink>
+          )}
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../slices/store'
 import { useNavigate } from 'react-router-dom'
@@ -95,8 +95,8 @@ export default function CheckOut() {
                   className={`${
                     !products.nameBiller && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full rounded-lg`}
                   placeholder='Alexei Ward'
                   onChange={(event) => dispatch(nameBiller(event.target.value))}
                 />
@@ -105,39 +105,33 @@ export default function CheckOut() {
                 <div className='flex justify-between'>
                   <p
                     className={`${
-                      !products.email &&
                       products.validationCheck &&
-                      products.emailValidation &&
+                      !products.emailValidation &&
                       'text-red-600'
                     } font-bold mb-1`}
                   >
                     Email Address
                   </p>
 
-                  {!products.email &&
-                    products.validationCheck &&
-                    products.emailValidation && (
-                      <p
-                        className={`${
-                          !products.email &&
-                          products.validationCheck &&
-                          products.emailValidation &&
-                          'text-red-600'
-                        }  mb-1`}
-                      >
-                        Wrong format
-                      </p>
-                    )}
+                  {products.validationCheck && !products.emailValidation && (
+                    <p
+                      className={`${
+                        products.validationCheck &&
+                        !products.emailValidation &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
                 </div>
                 <input
                   type='text'
                   className={`${
-                    !products.email &&
-                    products.validationCheck &&
-                    products.emailValidation
+                    products.validationCheck && !products.emailValidation
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full rounded-lg`}
                   placeholder='alexei@email.com'
                   onChange={(event) => dispatch(email(event.target.value))}
                 />
@@ -171,9 +165,9 @@ export default function CheckOut() {
                   className={`${
                     !products.phone && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
-                  placeholder='+1 202-555-0136'
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
+                  placeholder='0459 555 136'
                   onChange={(event) =>
                     dispatch(phone(Number(event.target.value)))
                   }
@@ -211,8 +205,8 @@ export default function CheckOut() {
                   className={`${
                     !products.address && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
                   placeholder='1137 Williams Avenue'
                   onChange={(event) => dispatch(address(event.target.value))}
                 />
@@ -246,9 +240,9 @@ export default function CheckOut() {
                   className={`${
                     !products.zip && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
-                  placeholder='10001'
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
+                  placeholder='4000'
                   onChange={(event) =>
                     dispatch(zip(Number(event.target.value)))
                   }
@@ -283,8 +277,8 @@ export default function CheckOut() {
                   className={`${
                     !products.city && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
                   placeholder='New York'
                   onChange={(event) => dispatch(city(event.target.value))}
                 />
@@ -318,8 +312,8 @@ export default function CheckOut() {
                   className={`${
                     !products.country && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
                   placeholder='United States'
                   onChange={(event) => dispatch(country(event.target.value))}
                 />
@@ -379,8 +373,8 @@ export default function CheckOut() {
                   className={`${
                     !products.emoneyNumber && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
                   placeholder='238521993'
                   onChange={(event) =>
                     dispatch(emoneyNumber(Number(event.target.value)))
@@ -416,8 +410,8 @@ export default function CheckOut() {
                   className={`${
                     !products.pin && products.validationCheck
                       ? 'border-red-600 border-2'
-                      : 'border-[1px]'
-                  } p-4 w-full  border-zinc-300 rounded-lg`}
+                      : 'border-[1px] border-zinc-300'
+                  } p-4 w-full  rounded-lg`}
                   placeholder='6891'
                   onChange={(event) =>
                     dispatch(pin(Number(event.target.value)))

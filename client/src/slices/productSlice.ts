@@ -210,11 +210,8 @@ export const productSlice = createSlice({
       const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
       state.value.emailValidation = emailRegex.test(action.payload)
       state.value.email = action.payload
-      console.log(emailValidation)
-    },
-    emailValidation: (state, action: PayloadAction<string>) => {
-      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-      state.value.emailValidation = emailRegex.test(action.payload)
+      console.log(state.value.email)
+      console.log(state.value.emailValidation)
     },
     phone: (state, action: PayloadAction<number>) => {
       state.value.phone = action.payload
@@ -278,7 +275,6 @@ export const {
   orderDisplay,
   nameBiller,
   email,
-  emailValidation,
   phone,
   address,
   zip,
