@@ -85,6 +85,7 @@ export default function SeeProduct() {
           return { image: value, name: newName[index], _id: newId[index] }
         })
         dispatch(recommend(result))
+
         // console.log(products.id)
         // console.log(result)
       })
@@ -137,9 +138,9 @@ export default function SeeProduct() {
             </p>
             <h5 className='my-10'>{`$ ${products.price.toLocaleString()}`}</h5>
             <div className='flex items-center justify-start'>
-              <div className='text-white bg-zinc-300 hover:bg-zinc-200  subtitle  mr-5 flex items-center justify-center'>
+              <div className='text-white bg-zinc-100  subtitle  mr-5 flex items-center justify-center'>
                 <button
-                  className='p-4 px-6 text-zinc-400'
+                  className='p-4 px-6 text-zinc-400 hover:text-orange'
                   onClick={() => dispatch(addCounter())}
                 >
                   +
@@ -148,7 +149,7 @@ export default function SeeProduct() {
                   {products.counter}
                 </div>
                 <button
-                  className='p-4 px-6 text-zinc-400'
+                  className='p-4 px-6 text-zinc-400 hover:text-orange'
                   onClick={() => dispatch(subCounter())}
                 >
                   -

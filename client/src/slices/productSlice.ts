@@ -44,6 +44,17 @@ interface productState {
     vat: number
     grandTotal: number
     orderDisplay: boolean
+    nameBiller: string
+    email: string
+    emailValidation: boolean
+    phone: number
+    address: string
+    zip: number
+    city: string
+    country: string
+    emoneyNumber: number
+    pin: number
+    validationCheck: boolean
   }
 }
 
@@ -73,6 +84,17 @@ const initialState: productState = {
     vat: 0,
     grandTotal: 0,
     orderDisplay: false,
+    nameBiller: '',
+    email: '',
+    emailValidation: false,
+    phone: 0,
+    address: '',
+    zip: 0,
+    city: '',
+    country: '',
+    emoneyNumber: 0,
+    pin: 0,
+    validationCheck: false,
   },
 }
 
@@ -181,6 +203,46 @@ export const productSlice = createSlice({
     orderDisplay: (state) => {
       state.value.orderDisplay = !state.value.orderDisplay
     },
+    nameBiller: (state, action: PayloadAction<string>) => {
+      state.value.nameBiller = action.payload
+    },
+    email: (state, action: PayloadAction<string>) => {
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+      state.value.emailValidation = emailRegex.test(action.payload)
+      state.value.email = action.payload
+      console.log(emailValidation)
+    },
+    emailValidation: (state, action: PayloadAction<string>) => {
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+      state.value.emailValidation = emailRegex.test(action.payload)
+    },
+    phone: (state, action: PayloadAction<number>) => {
+      state.value.phone = action.payload
+    },
+    address: (state, action: PayloadAction<string>) => {
+      state.value.address = action.payload
+    },
+    zip: (state, action: PayloadAction<number>) => {
+      state.value.zip = action.payload
+    },
+    city: (state, action: PayloadAction<string>) => {
+      state.value.city = action.payload
+    },
+    country: (state, action: PayloadAction<string>) => {
+      state.value.country = action.payload
+    },
+    emoneyNumber: (state, action: PayloadAction<number>) => {
+      state.value.emoneyNumber = action.payload
+    },
+    pin: (state, action: PayloadAction<number>) => {
+      state.value.pin = action.payload
+    },
+    validationCheck: (state) => {
+      state.value.validationCheck = true
+    },
+    validationToFalse: (state) => {
+      state.value.validationCheck = false
+    },
   },
 })
 
@@ -214,5 +276,17 @@ export const {
   vat,
   grandTotal,
   orderDisplay,
+  nameBiller,
+  email,
+  emailValidation,
+  phone,
+  address,
+  zip,
+  city,
+  country,
+  emoneyNumber,
+  pin,
+  validationCheck,
+  validationToFalse,
 } = productSlice.actions
 export default productSlice.reducer

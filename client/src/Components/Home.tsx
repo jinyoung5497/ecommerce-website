@@ -64,7 +64,7 @@ export default function Home() {
               truly remarkable sound.
             </p>
             <button
-              className='text-white bg-black hover:bg-black-light p-4 subtitle px-5'
+              className='text-white bg-black hover:bg-slate-600 p-4 subtitle px-5'
               onClick={() => seeProduct('6487ccb5ca8382e9725d607a')}
             >
               see product
@@ -75,7 +75,7 @@ export default function Home() {
           <div className='row-start-1 col-start-1 z-10 ml-20'>
             <h3 className='mb-5'>ZX7 speaker</h3>
             <button
-              className='text-black border-black border-2 hover:bg-black-light p-3 subtitle px-5'
+              className='text-black border-black border-2 hover:bg-black-light p-3 subtitle px-5 hover:text-white'
               onClick={() => seeProduct('6487ccb5ca8382e9725d6079')}
             >
               see product
@@ -96,7 +96,7 @@ export default function Home() {
           <div className='bg-gray w-full h-full rounded-xl flex flex-col items-start justify-center p-20'>
             <h3>yx1 earphones</h3>
             <button
-              className='text-black border-black border-2 p-3 mt-5 subtitle px-5'
+              className='text-black border-black border-2 p-3 mt-5 subtitle hover:text-white hover:bg-black px-5'
               onClick={() => seeProduct('6487ccb5ca8382e9725d6075')}
             >
               see product

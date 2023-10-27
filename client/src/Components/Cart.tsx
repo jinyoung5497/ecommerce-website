@@ -74,6 +74,7 @@ export default function Cart() {
     dispatch(cartDisplay())
     dispatch(vat())
     dispatch(grandTotal())
+    window.scrollTo({ top: 0 })
   }
 
   return (
@@ -90,7 +91,7 @@ export default function Cart() {
           <div className='flex w-full items-center justify-between mb-3'>
             <h6>cart({products.cart.length})</h6>
             <button
-              className='text-zinc-500 underline'
+              className='text-zinc-500 underline hover:text-orange'
               onClick={() => dispatch(emptyCart())}
             >
               Remove all
@@ -114,9 +115,9 @@ export default function Cart() {
                   </div>
                 </div>
                 <div className=''>
-                  <div className='text-white bg-zinc-300 hover:bg-zinc-200  subtitle flex items-center justify-center'>
+                  <div className='text-white bg-zinc-100 subtitle flex items-center justify-center'>
                     <button
-                      className='p-1 px-4 text-zinc-400'
+                      className='p-1 px-4 text-zinc-400 hover:text-orange'
                       onClick={() => add(index)}
                     >
                       +
@@ -125,7 +126,7 @@ export default function Cart() {
                       {products.cart[index].counter}
                     </div>
                     <button
-                      className='p-1 px-4 text-zinc-400'
+                      className='p-1 px-4 text-zinc-400 hover:text-orange'
                       onClick={() => sub(index)}
                     >
                       -

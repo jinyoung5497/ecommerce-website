@@ -25,31 +25,31 @@ export default function Footer() {
           <div className='flex gap-10 text-[14px] mb-32'>
             <NavLink
               to='/'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               home
             </NavLink>
             <NavLink
               to='headphone'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               headphones
             </NavLink>
             <NavLink
               to='speaker'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               speakers
             </NavLink>
             <NavLink
               to='earphone'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               earphones
             </NavLink>
           </div>
           <div className='flex gap-4'>
-            <img src={facebook} alt='facebook' />
+            <img src={facebook} alt='facebook' className='' />
             <img src={twitter} alt='twitter' />
             <img src={instagram} alt='instagram' />
           </div>

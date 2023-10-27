@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../slices/store'
 import { useNavigate } from 'react-router-dom'
-import { checkbox, orderDisplay } from '../slices/productSlice'
+import {
+  checkbox,
+  orderDisplay,
+  validationCheck,
+  validationToFalse,
+  nameBiller,
+  email,
+  phone,
+  address,
+  zip,
+  city,
+  country,
+  emoneyNumber,
+  pin,
+} from '../slices/productSlice'
 
 export default function CheckOut() {
   const dispatch = useDispatch()
@@ -14,7 +28,30 @@ export default function CheckOut() {
   }
 
   const orderComplete = () => {
-    dispatch(orderDisplay())
+    dispatch(validationCheck())
+    if (
+      products.nameBiller &&
+      products.email &&
+      products.phone &&
+      products.address &&
+      products.zip &&
+      products.city &&
+      products.country &&
+      products.emoneyNumber &&
+      products.pin
+    ) {
+      dispatch(orderDisplay())
+      dispatch(nameBiller(''))
+      dispatch(email(''))
+      dispatch(phone(0))
+      dispatch(address(''))
+      dispatch(zip(0))
+      dispatch(city(''))
+      dispatch(country(''))
+      dispatch(emoneyNumber(0))
+      dispatch(pin(0))
+      dispatch(validationToFalse())
+    }
   }
 
   return (
@@ -30,62 +67,261 @@ export default function CheckOut() {
             <p className='subtitle'>billing details</p>
             <div className='w-full gap-4 gap-y-4 flex flex-wrap items-center justify-start'>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>Name</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.nameBiller &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    Name
+                  </p>
+
+                  {!products.nameBiller && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.nameBiller &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.nameBiller && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='Alexei Ward'
+                  onChange={(event) => dispatch(nameBiller(event.target.value))}
                 />
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>Email Address</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.email &&
+                      products.validationCheck &&
+                      products.emailValidation &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    Email Address
+                  </p>
+
+                  {!products.email &&
+                    products.validationCheck &&
+                    products.emailValidation && (
+                      <p
+                        className={`${
+                          !products.email &&
+                          products.validationCheck &&
+                          products.emailValidation &&
+                          'text-red-600'
+                        }  mb-1`}
+                      >
+                        Wrong format
+                      </p>
+                    )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.email &&
+                    products.validationCheck &&
+                    products.emailValidation
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='alexei@email.com'
+                  onChange={(event) => dispatch(email(event.target.value))}
                 />
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>Phone Number</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.phone &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    Phone Number
+                  </p>
+
+                  {!products.phone && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.phone &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.phone && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='+1 202-555-0136'
+                  onChange={(event) =>
+                    dispatch(phone(Number(event.target.value)))
+                  }
                 />
               </div>
             </div>
             <p className='subtitle mt-10'>shipping info</p>
             <div className='w-full gap-4 gap-y-4 flex flex-wrap items-center justify-start'>
               <div className='w-full'>
-                <p className='font-bold mb-1'>Adress</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.address &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    Address
+                  </p>
+
+                  {!products.address && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.address &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.address && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='1137 Williams Avenue'
+                  onChange={(event) => dispatch(address(event.target.value))}
                 />
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>ZIP Code</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.zip &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    ZIP Code
+                  </p>
+
+                  {!products.zip && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.zip &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.zip && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='10001'
+                  onChange={(event) =>
+                    dispatch(zip(Number(event.target.value)))
+                  }
                 />
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>City</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.city &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    City
+                  </p>
+
+                  {!products.city && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.city &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.city && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='New York'
+                  onChange={(event) => dispatch(city(event.target.value))}
                 />
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>Country</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.country &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    Country
+                  </p>
+
+                  {!products.country && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.country &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.country && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='United States'
+                  onChange={(event) => dispatch(country(event.target.value))}
                 />
               </div>
             </div>
@@ -115,19 +351,77 @@ export default function CheckOut() {
                 </div>
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>e-Money Number</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.emoneyNumber &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    e-Money Number
+                  </p>
+
+                  {!products.emoneyNumber && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.emoneyNumber &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.emoneyNumber && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='238521993'
+                  onChange={(event) =>
+                    dispatch(emoneyNumber(Number(event.target.value)))
+                  }
                 />
               </div>
               <div className='w-[48%]'>
-                <p className='font-bold mb-1'>e-Money PIN</p>
+                <div className='flex justify-between'>
+                  <p
+                    className={`${
+                      !products.pin &&
+                      products.validationCheck &&
+                      'text-red-600'
+                    } font-bold mb-1`}
+                  >
+                    e-Money PIN
+                  </p>
+
+                  {!products.pin && products.validationCheck && (
+                    <p
+                      className={`${
+                        !products.pin &&
+                        products.validationCheck &&
+                        'text-red-600'
+                      }  mb-1`}
+                    >
+                      Wrong format
+                    </p>
+                  )}
+                </div>
                 <input
                   type='text'
-                  className='p-4 w-full border-[1px] border-zinc-300 rounded-lg'
+                  className={`${
+                    !products.pin && products.validationCheck
+                      ? 'border-red-600 border-2'
+                      : 'border-[1px]'
+                  } p-4 w-full  border-zinc-300 rounded-lg`}
                   placeholder='6891'
+                  onChange={(event) =>
+                    dispatch(pin(Number(event.target.value)))
+                  }
                 />
               </div>
             </div>

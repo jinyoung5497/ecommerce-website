@@ -16,25 +16,29 @@ export default function Navbar() {
           <div className='flex gap-10  text-[14px] items-center md:w-fit'>
             <NavLink
               to='/'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              onClick={() => window.scrollTo({ top: 0 })}
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               home
             </NavLink>
             <NavLink
               to='headphone'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              onClick={() => window.scrollTo({ top: 0 })}
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               headphones
             </NavLink>
             <NavLink
               to='speaker'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              onClick={() => window.scrollTo({ top: 0 })}
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               speakers
             </NavLink>
             <NavLink
               to='earphone'
-              className='uppercase text-white tracking-widest cursor-pointer'
+              onClick={() => window.scrollTo({ top: 0 })}
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               earphones
             </NavLink>
