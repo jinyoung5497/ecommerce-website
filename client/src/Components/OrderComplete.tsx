@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../slices/store'
 import { useNavigate } from 'react-router-dom'
-import { checkbox, orderDisplay } from '../slices/productSlice'
+import { checkbox, emptyCart, orderDisplay } from '../slices/productSlice'
 import { NavLink } from 'react-router-dom'
 import check from '../assets/checkout/icon-order-confirmation.svg'
 
@@ -35,6 +35,14 @@ export default function OrderComplete() {
     setViewItem((prev) => !prev)
   }
 
+  const backToHome = () => {
+    dispatch(orderDisplay())
+    // clear cart
+    dispatch(emptyCart())
+    window.scrollTo({ top: 0 })
+    setViewItem(false)
+  }
+
   return (
     <>
       <div
@@ -58,7 +66,24 @@ export default function OrderComplete() {
           </div>
           <div className='bg-black rounded-xl overflow-hidden flex w-full h-full items-center justify-center my-5'>
             <div className='bg-gray flex-1 flex flex-col items-center justify-center p-5'>
-              {viewItem ? (
+              {!viewItem && products.cart.length > 0 ? (
+                <div className='flex items-center justify-between w-full '>
+                  <img
+                    src={products.cart[0].image}
+                    alt='product image'
+                    className='h-16 rounded-xl '
+                  />
+                  <div className='flex flex-col items-start justify-start w-full ml-5'>
+                    <div className='font-bold'>{products.cart[0].name}</div>
+                    <div className='font-bold text-zinc-400'>
+                      $ {products.cart[0].price.toLocaleString()}
+                    </div>
+                  </div>
+                  <p className='font-bold text-zinc-400 justify-self-end'>
+                    X{products.cart[0].counter}
+                  </p>
+                </div>
+              ) : (
                 products.cart.map((value, index) => {
                   return (
                     <div
@@ -82,28 +107,8 @@ export default function OrderComplete() {
                     </div>
                   )
                 })
-              ) : products.cart.length == 1 ? (
-                <div className='flex items-center justify-between w-full '>
-                  <img
-                    src={products.cart[0].image}
-                    alt='product image'
-                    className='h-16 rounded-xl '
-                  />
-                  <div className='flex flex-col items-start justify-start w-full ml-5'>
-                    <div className='font-bold'>{products.cart[0].name}</div>
-                    <div className='font-bold text-zinc-400'>
-                      $ {products.cart[0].price.toLocaleString()}
-                    </div>
-                  </div>
-                  <p className='font-bold text-zinc-400 justify-self-end'>
-                    X{products.cart[0].counter}
-                  </p>
-                </div>
-              ) : (
-                <div className='flex items-center justify-between w-full'>
-                  There is no item in the cart
-                </div>
               )}
+
               {/* view items */}
               {products.cart.length !== 1 && (
                 <div className='w-full flex flex-col'>
@@ -136,7 +141,7 @@ export default function OrderComplete() {
           <NavLink
             className='text-white bg-orange hover:bg-orange-light p-3 subtitle px-5 w-full text-center'
             to={'/'}
-            onClick={() => dispatch(orderDisplay())}
+            onClick={backToHome}
           >
             Back to home
           </NavLink>

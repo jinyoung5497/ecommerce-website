@@ -12,7 +12,9 @@ export default function Navbar() {
     <>
       <div className='sticky top-0 z-50 w-full'>
         <div className='px-80 bg-black-light text-white h-24 flex items-center justify-between  '>
-          <img src={logo} alt='logo' />
+          <NavLink to='/' onClick={() => window.scrollTo({ top: 0 })}>
+            <img src={logo} alt='logo' />
+          </NavLink>
           <div className='flex gap-10  text-[14px] items-center md:w-fit'>
             <NavLink
               to='/'

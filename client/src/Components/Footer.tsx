@@ -24,24 +24,28 @@ export default function Footer() {
         <div className='flex-1 w-1/2 flex items-end flex-col'>
           <div className='flex gap-10 text-[14px] mb-32'>
             <NavLink
+              onClick={() => window.scrollTo({ top: 0 })}
               to='/'
               className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               home
             </NavLink>
             <NavLink
+              onClick={() => window.scrollTo({ top: 0 })}
               to='headphone'
               className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               headphones
             </NavLink>
             <NavLink
+              onClick={() => window.scrollTo({ top: 0 })}
               to='speaker'
               className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >
               speakers
             </NavLink>
             <NavLink
+              onClick={() => window.scrollTo({ top: 0 })}
               to='earphone'
               className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
             >

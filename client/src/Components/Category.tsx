@@ -10,7 +10,7 @@ export default function Recommend() {
     <>
       <div className='w-full flex items-center justify-center'>
         <div className='flex items-center justify-between my-40'>
-          <NavLink to='/headphone'>
+          <NavLink onClick={() => window.scrollTo({ top: 0 })} to='/headphone'>
             <div className='group bg-gray rounded-xl mx-4 w-96 xl:w-72 lg:w-52 md:w-40 h-56 flex flex-col items-center justify-center cursor-pointer'>
               <img
                 src={headphone}
@@ -28,7 +28,7 @@ export default function Recommend() {
               </div>
             </div>
           </NavLink>
-          <NavLink to='/speaker'>
+          <NavLink onClick={() => window.scrollTo({ top: 0 })} to='/speaker'>
             <div className='group bg-gray rounded-xl mx-4 w-96 xl:w-72 lg:w-52 md:w-40 h-56 flex flex-col items-center justify-center cursor-pointer'>
               <img
                 src={speaker}
@@ -46,7 +46,7 @@ export default function Recommend() {
               </div>
             </div>
           </NavLink>
-          <NavLink to='/earphone'>
+          <NavLink onClick={() => window.scrollTo({ top: 0 })} to='/earphone'>
             <div className='group bg-gray rounded-xl mx-4 w-96 xl:w-72 lg:w-52 md:w-40 h-56 flex flex-col items-center justify-center cursor-pointer'>
               <img
                 src={earphone}

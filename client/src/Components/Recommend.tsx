@@ -17,6 +17,7 @@ export default function Recommend() {
 
   const seeProduct = (id: string) => {
     dispatch(getProductId(id))
+    window.scrollTo({ top: 0 })
   }
 
   return (
