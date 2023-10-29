@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <>
       <div className='sticky top-0 z-50 w-full'>
-        <div className='px-60 1150px:px-20 bg-black-light text-white h-24 flex items-center justify-between  '>
+        <div className='px-60 1150px:px-20 450px:px-4  bg-black-light text-white h-24 flex items-center justify-between  '>
           <div className='flex items-center gap-4' onClick={openMenu}>
             <img
               src={hamberger}
@@ -29,6 +29,7 @@ export default function Navbar() {
               <img src={logo} alt='logo' />
             </NavLink>
           </div>
+
           <div className='flex gap-10  text-[14px] items-center md:w-fit'>
             <NavLink
               to='/'

@@ -8,7 +8,7 @@ import instagram from '../assets/shared/desktop/icon-instagram.svg'
 export default function Footer() {
   return (
     <>
-      <div className='h-96 bg-black-light flex p-20 1150px:p-10 w-full'>
+      <div className='h-96 650px:h-full bg-black-light flex p-20 1150px:p-10 w-full'>
         <div className='flex-1 w-1/2 overflow-hidden 1150px:hidden'>
           <img src={logo} alt='logo' className='mb-10' />
           <p className='text-zinc-500 whitespace-pre-line mr-20 mb-16 text-lg'>
@@ -59,46 +59,46 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='1150px:flex 1150px:flex-col 1150px:items-start overflow-hidden hidden '>
+        <div className='1150px:flex 1150px:flex-col 1150px:items-start  hidden 650px:items-center'>
           <img src={logo} alt='logo' className='mb-10' />
-          <div className='flex gap-10 text-[14px] mb-10'>
+          <div className='flex gap-10 text-[14px] mb-10 650px:flex-col'>
             <NavLink
               onClick={() => window.scrollTo({ top: 0 })}
               to='/'
-              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer 650px:text-center'
             >
               home
             </NavLink>
             <NavLink
               onClick={() => window.scrollTo({ top: 0 })}
               to='headphone'
-              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer 650px:text-center'
             >
               headphones
             </NavLink>
             <NavLink
               onClick={() => window.scrollTo({ top: 0 })}
               to='speaker'
-              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer 650px:text-center'
             >
               speakers
             </NavLink>
             <NavLink
               onClick={() => window.scrollTo({ top: 0 })}
               to='earphone'
-              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer'
+              className='uppercase text-white hover:text-orange tracking-widest cursor-pointer 650px:text-center'
             >
               earphones
             </NavLink>
           </div>
-          <p className='text-zinc-500 whitespace-pre-line mb-10 text-lg'>
+          <p className='text-zinc-500 whitespace-pre-line mb-10 text-lg 650px:text-center 650px:text-md'>
             Audiophile is an all in one stop to fulfil your audio needs. We're a
             small team of music lovers and sound specialists who are devoted to
             helping you get the most out of personal audio. Come and visit our
             demo facility - we're open 7 days a week
           </p>
-          <div className='flex justify-between w-full'>
-            <p className='text-zinc-500 text-lg font-bold'>
+          <div className='flex justify-between w-full 650px:flex-col 650px:items-center 650px:gap-4'>
+            <p className='text-zinc-500 text-lg font-bold 650px:text-sm'>
               Copyright 2021. All Rights Reserved
             </p>
             <div className='flex gap-4'>
