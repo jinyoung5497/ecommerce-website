@@ -3,20 +3,44 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      '2xl': { max: '1439px' },
-      // => @media (max-width: 1439px) { ... }
+      '1450px': { max: '1450px' },
+      // => @media (max-width: 1450px) { ... } desktop
 
-      xl: { max: '1279px' },
-      // => @media (max-width: 1279px) { ... }
+      '1350px': { max: '1350px' },
+      // => @media (max-width: 1350px) { ... } desktop
 
-      lg: { max: '1023px' },
-      // => @media (max-width: 1023px) { ... } laptop
+      '1250px': { max: '1250px' },
+      // => @media (max-width: 1250px) { ... } desktop
 
-      md: { max: '767px' },
-      // => @media (max-width: 767px) { ... } tablet
+      '1150px': { max: '1150px' },
+      // => @media (max-width: 1150px) { ... } desktop
 
-      sm: { max: '639px' },
-      // => @media (max-width: 639px) { ... } mobile
+      '1050px': { max: '1050px' },
+      // => @media (max-width: 1050px) { ... } tablet
+
+      '950px': { max: '950px' },
+      // => @media (max-width: 950px) { ... } tablet
+
+      '850px': { max: '850px' },
+      // => @media (max-width: 850px) { ... } tablet
+
+      '750px': { max: '750px' },
+      // => @media (max-width: 750px) { ... } mobile
+
+      '650px': { max: '650px' },
+      // => @media (max-width: 650px) { ... } mobile
+
+      '550px': { max: '550px' },
+      // => @media (max-width: 550px) { ... } mobile
+
+      '450px': { max: '450px' },
+      // => @media (max-width: 450px) { ... } mobile
+
+      '400px': { max: '400px' },
+      // => @media (max-width: 400px) { ... } mobile
+
+      '350px': { max: '350px' },
+      // => @media (max-width: 350px) { ... } mobile
     },
     extend: {
       colors: {

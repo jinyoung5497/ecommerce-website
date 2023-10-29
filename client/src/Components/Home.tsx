@@ -22,12 +22,12 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <div className='h-fit bg-white-off w-fit grid grid-cols-1 grid-rows-1 '>
-        <img src={hero} alt='hero' className=' w-fit row-start-1 col-start-1' />
-        <div className='w-96 max-w-fit h-full ml-80 row-start-1 col-start-1 flex flex-col justify-center'>
-          <p className='text-white overlines mb-5'>new product</p>
+      <div className='h-fit bg-white-off w-fit grid grid-cols-1 grid-rows-1   1150px:place-items-center 1150px:mb-20'>
+        <img src={hero} alt='hero' className='row-start-1 col-start-1' />
+        <div className='w-96 max-w-fit h-full ml-80 1150px:ml-0 row-start-1 col-start-1 flex flex-col justify-center 1150px:items-center'>
+          <p className='text-slate-500 overlines mb-5'>new product</p>
           <h1 className='text-white mb-10'>xx99 mark ii headphones</h1>
-          <p className='text-gray mb-10 mr-5'>
+          <p className='text-gray mb-10 mr-5 1150px:text-center'>
             Experience natural, lifelike audio and exceptional build quality
             made fro the passionate music enthusiast.
           </p>
@@ -42,24 +42,24 @@ export default function Home() {
       {/* Category */}
       <Category />
       {/* PRODUCTS */}
-      <section className='flex flex-col items-center justify-center mx-52'>
-        <div className='bg-orange  h-[44rem] flex items-center justify-center px-28 pt-28 rounded-xl  mb-16'>
-          <div className='grid grid-rows-1 grid-cols-1 items-center justify-center'>
+      <section className='flex flex-col items-center justify-center mx-52 1350px:mx-40 950px:mx-20'>
+        <div className='bg-orange  h-[44rem] 1350px:h-[50rem] flex items-center justify-center px-28 1350px:px-10 pt-28 1350px:pt-0 rounded-xl  mb-16 1350px:flex-col'>
+          <div className='grid grid-rows-1 grid-cols-1 items-center justify-center 1350px:place-items-center 1350px:relative 1350px:-top-10'>
             <img
               src={speaker1}
               alt='speaker1'
-              className='w-96 h-fit z-10 col-start-1 row-start-1'
+              className='w-96 1350px:w-52 h-fit z-10 col-start-1 row-start-1'
             />
             <img
               src={pattern}
               alt='pattern'
-              className='w-fit h-fit col-start-1 row-start-1'
+              className='w-fit 1350px:w-[20rem] h-fit col-start-1 row-start-1'
             />
           </div>
-          <div className='w-1/2 text-white mt-10'>
+          <div className='w-1/2 text-white mt-10 1350px:mt-0 1350px:relative 1350px:-top-10  1350px:items-center 1350px:flex 1350px:flex-col'>
             <h1 className='mb-1'>zx9</h1>
             <h1 className='mb-10'>speaker</h1>
-            <p className='mb-10 w-5/6'>
+            <p className='mb-10 w-5/6 1350px:text-center'>
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
@@ -87,13 +87,13 @@ export default function Home() {
             className='row-start-1 col-start-1 w-full'
           />
         </div>
-        <div className='flex w-full h-80 items-center justify-between gap-10'>
+        <div className='flex w-full h-80 items-center justify-between gap-10 1050px:gap-4'>
           <img
             src={earphone}
             alt='earphone'
-            className='overflow-hidden rounded-xl w-full h-full'
+            className='overflow-hidden rounded-xl w-full h-full 1050px:w-1/2'
           />
-          <div className='bg-gray w-full h-full rounded-xl flex flex-col items-start justify-center p-20'>
+          <div className='bg-gray w-full h-full rounded-xl flex flex-col items-start justify-center p-20 950px:p-10 950px:items-center 1050px:w-1/2'>
             <h3>yx1 earphones</h3>
             <button
               className='text-black border-black border-2 p-3 mt-5 subtitle hover:text-white hover:bg-black px-5'

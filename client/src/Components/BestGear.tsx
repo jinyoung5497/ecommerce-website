@@ -4,12 +4,14 @@ import bestGear from '../assets/shared/desktop/image-best-gear.jpg'
 export default function BestGear() {
   return (
     <>
-      <div className='flex items-center justify-center  w-full h-full p-52 gap-32'>
+      <div className='flex items-center justify-center  w-full h-full p-52 gap-32 1250px:gap-20 1150px:flex-col'>
         <div className=' flex-1'>
-          <h2>Bringing you the</h2>
-          <div className='flex items-center justify-start mb-10'>
-            <h2 className='mr-2 text-orange'> best</h2>
-            <h2> audio gear</h2>
+          <div className=''>
+            <h2>Bringing you the</h2>
+            <div className='flex items-center justify-start mb-10'>
+              <h2 className='mr-2 text-orange'> best</h2>
+              <h2> audio gear</h2>
+            </div>
           </div>
           <p className='text-zinc-500 '>
             Located at the hear of New York City, Audiophile is the premier
