@@ -2,17 +2,23 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/shared/desktop/logo.svg'
 import shoppingCart from '../assets/shared/desktop/icon-cart.svg'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { cartDisplay } from '../slices/productSlice'
 import hamberger from '../assets/shared/tablet/icon-hamburger.svg'
 import { Category } from '.'
+import { RootState } from '../slices/store'
 
 export default function Navbar() {
   const dispatch = useDispatch()
+  const products = useSelector((state: RootState) => state.products.value)
   const [menu, setMenu] = useState(false)
 
   const openMenu = () => {
     setMenu((prev) => !prev)
+  }
+
+  const closeMenu = () => {
+    setMenu(false)
   }
 
   return (
@@ -63,12 +69,16 @@ export default function Navbar() {
           <img
             src={shoppingCart}
             alt='shoppingCart'
+            className='z-50'
             onClick={() => dispatch(cartDisplay())}
           />
         </div>
         <div className='mx-80 border-b-[1px] border-[#ffffff3f]'></div>
         {menu && (
-          <div className='invisible fixed w-full 1150px:visible rounded-b-xl bg-white'>
+          <div
+            onClick={closeMenu}
+            className='invisible fixed w-full 1150px:visible rounded-b-xl bg-white'
+          >
             <Category />
           </div>
         )}

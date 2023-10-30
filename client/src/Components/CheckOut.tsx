@@ -17,6 +17,7 @@ import {
   emoneyNumber,
   pin,
 } from '../slices/productSlice'
+import cashIcon from '../assets/checkout/icon-cash-on-delivery.svg'
 
 export default function CheckOut() {
   const dispatch = useDispatch()
@@ -57,16 +58,19 @@ export default function CheckOut() {
   return (
     <>
       <div className='bg-gray'>
-        <button className='text-zinc-500 mt-20 ml-28' onClick={goBack}>
+        <button
+          className='text-zinc-500 mt-20 ml-28 550px:ml-10 550px:mt-10'
+          onClick={goBack}
+        >
           Go back
         </button>
-        <div className='flex w-full items-start justify-center p-20'>
+        <div className='flex w-full items-start justify-center p-20 950px:p-10 400px:p-5 1050px:flex-col 1050px:items-center'>
           {/* checkout */}
-          <div className='flex-4 flex flex-col items-start justify-center w-3/5 bg-white p-10 m-5 rounded-xl gap-y-4'>
+          <div className='flex-4 flex flex-col items-start justify-center w-3/5 1050px:w-full bg-white p-10 400px:p-5 m-5 rounded-xl gap-y-4'>
             <h2>checkout</h2>
             <p className='subtitle'>billing details</p>
             <div className='w-full gap-4 gap-y-4 flex flex-wrap items-center justify-start'>
-              <div className='w-[48%]'>
+              <div className='w-[48%] 650px:w-full'>
                 <div className='flex justify-between'>
                   <p
                     className={`${
@@ -96,12 +100,12 @@ export default function CheckOut() {
                     !products.nameBiller && products.validationCheck
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full rounded-lg`}
+                  } p-4 w-full rounded-lg focus:border-orange outline-none`}
                   placeholder='Alexei Ward'
                   onChange={(event) => dispatch(nameBiller(event.target.value))}
                 />
               </div>
-              <div className='w-[48%]'>
+              <div className='w-[48%] 650px:w-full'>
                 <div className='flex justify-between'>
                   <p
                     className={`${
@@ -131,12 +135,12 @@ export default function CheckOut() {
                     products.validationCheck && !products.emailValidation
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full rounded-lg`}
+                  } p-4 w-full rounded-lg focus:border-orange outline-none`}
                   placeholder='alexei@email.com'
                   onChange={(event) => dispatch(email(event.target.value))}
                 />
               </div>
-              <div className='w-[48%]'>
+              <div className='w-[48%] 650px:w-full'>
                 <div className='flex justify-between'>
                   <p
                     className={`${
@@ -166,7 +170,7 @@ export default function CheckOut() {
                     !products.phone && products.validationCheck
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
+                  } p-4 w-full  rounded-lg focus:border-orange outline-none`}
                   placeholder='0459 555 136'
                   onChange={(event) =>
                     dispatch(phone(Number(event.target.value)))
@@ -206,12 +210,12 @@ export default function CheckOut() {
                     !products.address && products.validationCheck
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
+                  } p-4 w-full  rounded-lg focus:border-orange outline-none`}
                   placeholder='1137 Williams Avenue'
                   onChange={(event) => dispatch(address(event.target.value))}
                 />
               </div>
-              <div className='w-[48%]'>
+              <div className='w-[48%] 650px:w-full'>
                 <div className='flex justify-between'>
                   <p
                     className={`${
@@ -241,14 +245,14 @@ export default function CheckOut() {
                     !products.zip && products.validationCheck
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
+                  } p-4 w-full  rounded-lg focus:border-orange outline-none`}
                   placeholder='4000'
                   onChange={(event) =>
                     dispatch(zip(Number(event.target.value)))
                   }
                 />
               </div>
-              <div className='w-[48%]'>
+              <div className='w-[48%] 650px:w-full'>
                 <div className='flex justify-between'>
                   <p
                     className={`${
@@ -278,12 +282,12 @@ export default function CheckOut() {
                     !products.city && products.validationCheck
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
+                  } p-4 w-full  rounded-lg focus:border-orange outline-none`}
                   placeholder='New York'
                   onChange={(event) => dispatch(city(event.target.value))}
                 />
               </div>
-              <div className='w-[48%]'>
+              <div className='w-[48%] 650px:w-full'>
                 <div className='flex justify-between'>
                   <p
                     className={`${
@@ -313,7 +317,7 @@ export default function CheckOut() {
                     !products.country && products.validationCheck
                       ? 'border-red-600 border-2'
                       : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
+                  } p-4 w-full  rounded-lg focus:border-orange outline-none`}
                   placeholder='United States'
                   onChange={(event) => dispatch(country(event.target.value))}
                 />
@@ -321,19 +325,19 @@ export default function CheckOut() {
             </div>
             <p className='subtitle mt-10'>payment details</p>
             <div className='w-full gap-4 gap-y-4 flex flex-wrap items-center justify-start'>
-              <div className='w-full flex'>
+              <div className='w-full flex 650px:flex-col'>
                 <p className='font-bold mb-1 flex-1'>Payment Method</p>
-                <div className='flex flex-col flex-1 gap-y-3'>
-                  <label className='p-4 w-full border-[1px] border-zinc-300 rounded-lg font-bold checked:border-orange outline-none'>
+                <div className='flex flex-col flex-1 gap-y-3 '>
+                  <label className='p-4 w-full border-[1px] border-zinc-300 rounded-lg font-bold'>
                     <input
                       type='radio'
                       checked={products.emoney}
-                      className='mr-4 checked:bg-orange'
+                      className='mr-4'
                       onChange={() => dispatch(checkbox())}
                     />
                     e-Money
                   </label>
-                  <label className='p-4 w-full border-[1px] border-zinc-300 rounded-lg font-bold checked:border-orange outline-none'>
+                  <label className='p-4 w-full border-[1px] border-zinc-300 rounded-lg font-bold'>
                     <input
                       type='radio'
                       className='mr-4'
@@ -344,84 +348,100 @@ export default function CheckOut() {
                   </label>
                 </div>
               </div>
-              <div className='w-[48%]'>
-                <div className='flex justify-between'>
-                  <p
-                    className={`${
-                      !products.emoneyNumber &&
-                      products.validationCheck &&
-                      'text-red-600'
-                    } font-bold mb-1`}
-                  >
-                    e-Money Number
-                  </p>
+              {!products.cash && (
+                <>
+                  <div className='w-[48%] 650px:w-full'>
+                    <div className='flex justify-between'>
+                      <p
+                        className={`${
+                          !products.emoneyNumber &&
+                          products.validationCheck &&
+                          'text-red-600'
+                        } font-bold mb-1`}
+                      >
+                        e-Money Number
+                      </p>
 
-                  {!products.emoneyNumber && products.validationCheck && (
-                    <p
+                      {!products.emoneyNumber && products.validationCheck && (
+                        <p
+                          className={`${
+                            !products.emoneyNumber &&
+                            products.validationCheck &&
+                            'text-red-600'
+                          }  mb-1`}
+                        >
+                          Wrong format
+                        </p>
+                      )}
+                    </div>
+                    <input
+                      type='text'
                       className={`${
-                        !products.emoneyNumber &&
-                        products.validationCheck &&
-                        'text-red-600'
-                      }  mb-1`}
-                    >
-                      Wrong format
-                    </p>
-                  )}
-                </div>
-                <input
-                  type='text'
-                  className={`${
-                    !products.emoneyNumber && products.validationCheck
-                      ? 'border-red-600 border-2'
-                      : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
-                  placeholder='238521993'
-                  onChange={(event) =>
-                    dispatch(emoneyNumber(Number(event.target.value)))
-                  }
-                />
-              </div>
-              <div className='w-[48%]'>
-                <div className='flex justify-between'>
-                  <p
-                    className={`${
-                      !products.pin &&
-                      products.validationCheck &&
-                      'text-red-600'
-                    } font-bold mb-1`}
-                  >
-                    e-Money PIN
-                  </p>
+                        !products.emoneyNumber && products.validationCheck
+                          ? 'border-red-600 border-2'
+                          : 'border-[1px] border-zinc-300'
+                      } p-4 w-full  rounded-lg focus:border-orange outline-none`}
+                      placeholder='238521993'
+                      onChange={(event) =>
+                        dispatch(emoneyNumber(Number(event.target.value)))
+                      }
+                    />
+                  </div>
+                  <div className='w-[48%] 650px:w-full'>
+                    <div className='flex justify-between'>
+                      <p
+                        className={`${
+                          !products.pin &&
+                          products.validationCheck &&
+                          'text-red-600'
+                        } font-bold mb-1`}
+                      >
+                        e-Money PIN
+                      </p>
 
-                  {!products.pin && products.validationCheck && (
-                    <p
+                      {!products.pin && products.validationCheck && (
+                        <p
+                          className={`${
+                            !products.pin &&
+                            products.validationCheck &&
+                            'text-red-600'
+                          }  mb-1`}
+                        >
+                          Wrong format
+                        </p>
+                      )}
+                    </div>
+                    <input
+                      type='text'
                       className={`${
-                        !products.pin &&
-                        products.validationCheck &&
-                        'text-red-600'
-                      }  mb-1`}
-                    >
-                      Wrong format
-                    </p>
-                  )}
-                </div>
-                <input
-                  type='text'
-                  className={`${
-                    !products.pin && products.validationCheck
-                      ? 'border-red-600 border-2'
-                      : 'border-[1px] border-zinc-300'
-                  } p-4 w-full  rounded-lg`}
-                  placeholder='6891'
-                  onChange={(event) =>
-                    dispatch(pin(Number(event.target.value)))
-                  }
-                />
-              </div>
+                        !products.pin && products.validationCheck
+                          ? 'border-red-600 border-2'
+                          : 'border-[1px] border-zinc-300'
+                      } p-4 w-full  rounded-lg focus:border-orange outline-none`}
+                      placeholder='6891'
+                      onChange={(event) =>
+                        dispatch(pin(Number(event.target.value)))
+                      }
+                    />
+                  </div>
+                </>
+              )}
             </div>
+
+            {products.cash && (
+              <div className='flex gap-5 items-center justify-center 400px:flex-col 400px:mt-4'>
+                <img src={cashIcon} alt='cashIcon' />
+                <p className='text-slate-600'>
+                  The 'Cash on Delivery' option enables you to pay in cash when
+                  our delivery courier arrives at your residence. Just make sure
+                  your address is correct so that your order will not be
+                  cancelled.
+                </p>
+              </div>
+            )}
           </div>
           {/* summary */}
-          <div className='flex-1 flex flex-col items-start justify-center w-2/5 bg-white p-10 m-5 rounded-xl'>
+          <div className='flex-1 flex flex-col items-start justify-center w-2/5 1050px:w-full bg-white p-10 400px:p-5 m-5 rounded-xl'>
             <h5 className='mb-10'>summary</h5>
             {products.cart.map((value, index) => {
               return (

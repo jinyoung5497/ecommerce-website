@@ -81,10 +81,10 @@ export default function Cart() {
       <div
         className={`${
           products.cartDisplay ? 'block' : 'hidden'
-        } bg-[#00000046] w-full h-full fixed top-0 z-50 750px:flex 750px:items-start 750px:justify-center`}
+        } bg-[#00000046] w-full h-full fixed top-0 z-40 flex 750px:items-start 750px:justify-center`}
       >
         <div
-          className='flex flex-col w-[28rem] justify-center items-start p-10 bg-white rounded-3xl absolute top-28 right-40 750px:static 750px:mt-28 550px:mx-4'
+          className='flex flex-col w-[28rem] justify-center items-start p-10 400px:p-6 bg-white rounded-3xl absolute top-28 right-40 750px:static 750px:mt-28 550px:mx-4'
           ref={modalRef}
         >
           <div className='flex w-full items-center justify-between mb-3'>
@@ -108,7 +108,7 @@ export default function Cart() {
                   className='h-16 rounded-xl'
                 />
                 <div className='flex flex-col items-start justify-start w-full ml-3'>
-                  <div className='font-bold'>{value.name}</div>
+                  <div className='font-bold 400px:text-sm'>{value.name}</div>
                   <div className='font-bold text-zinc-400'>
                     $ {value.price.toLocaleString()}
                   </div>

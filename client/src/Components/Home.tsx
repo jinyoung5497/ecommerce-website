@@ -30,7 +30,7 @@ export default function Home() {
         />
         <div className='w-96 max-w-fit h-full ml-80 1150px:ml-0 row-start-1 col-start-1 flex flex-col justify-center 1150px:items-center'>
           <p className='text-slate-500 overlines mb-5'>new product</p>
-          <h1 className='text-white mb-10 850px:mb-5 850px:text-5xl text-center'>
+          <h1 className='text-white mb-10 850px:mb-5 850px:text-5xl 350px:text-4xl text-center'>
             xx99 mark ii headphones
           </h1>
           <p className='text-gray mb-10 mr-5 1150px:text-center'>
@@ -49,7 +49,7 @@ export default function Home() {
       <Category />
       {/* PRODUCTS */}
       <section className='flex flex-col items-center justify-center mx-52 1350px:mx-40 950px:mx-20 450px:mx-5'>
-        <div className='bg-orange  h-[44rem] 1350px:h-[50rem] flex items-center justify-center px-28 1350px:px-10 pt-28 1350px:pt-0 rounded-xl  mb-16 1350px:flex-col'>
+        <div className='bg-orange  h-[44rem] 1350px:h-[50rem] 350px:h-[44rem] flex items-center justify-center px-28 1350px:px-10 450px:px-3 pt-28 1350px:pt-0 rounded-xl  mb-16 1350px:flex-col'>
           <div className='grid grid-rows-1 grid-cols-1 items-center justify-center 1350px:place-items-center 1350px:relative 1350px:-top-10'>
             <img
               src={speaker1}

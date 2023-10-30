@@ -22,22 +22,22 @@ export default function Recommend() {
 
   return (
     <>
-      <div className='flex flex-col items-center justify-center mx-52 my-10'>
+      <div className='flex flex-col items-center justify-center mx-40 950px:mx-20 750px:mx-10 650px:mx-5 my-20'>
         <h2 className='mb-10'>you may also like</h2>
-        <div className='flex items-start justify-center gap-32'>
+        <div className='flex items-start justify-center gap-10 550px:flex-col'>
           {products.recommend.map((value: Irecommend, index: number) => {
             const newImage = value.image.slice(1)
             return (
               <div
                 key={index}
-                className='flex flex-col items-center justify-between gap-5 flex-1 h-[32rem]'
+                className='flex flex-col items-center justify-between gap-5 flex-1 h-[25rem] 750px:h-[20rem]'
               >
                 <img
                   src={`src${newImage}`}
                   alt='product image'
-                  className='rounded-xl'
+                  className='rounded-xl 550px:h-[20rem]'
                 />
-                <h5 className='text-center'>{value.name}</h5>
+                <h5 className='text-center 1050px:text-lg'>{value.name}</h5>
                 <button
                   className='text-white bg-orange hover:bg-orange-light p-4 subtitle px-5'
                   onClick={() => seeProduct(value._id)}

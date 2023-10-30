@@ -4,14 +4,23 @@ import speaker from '../assets/shared/desktop/image-category-thumbnail-speakers.
 import earphone from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
 import arrow from '../assets/shared/desktop/icon-arrow-right.svg'
 import { NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { menu } from '../slices/productSlice'
 
 export default function Recommend() {
+  const dispatch = useDispatch()
+
+  const openMenu = () => {
+    window.scrollTo({ top: 0 })
+    dispatch(menu())
+  }
+
   return (
     <>
       <div className='w-full flex items-center justify-center'>
         <div className='flex items-center justify-between my-40 1150px:my-20 550px:flex-col 550px:gap-20 550px:my-10'>
-          <NavLink onClick={() => window.scrollTo({ top: 0 })} to='/headphone'>
-            <div className='group bg-gray rounded-xl mx-4 w-96 1250px:w-72 1150px:w-60 850px:w-48 750px:w-40 650px:w-36 650px:h-32 h-56 1150px:h-40 flex flex-col items-center justify-center cursor-pointer 550px:w-80 550px:h-40'>
+          <NavLink onClick={openMenu} to='/headphone'>
+            <div className='group bg-gray rounded-xl mx-4 w-96 1250px:w-72 1150px:w-60 850px:w-48 750px:w-40 650px:w-36 450px:w-60 650px:h-32 h-56 1150px:h-40 flex flex-col items-center justify-center cursor-pointer 550px:w-80 550px:h-40'>
               <img
                 src={headphone}
                 alt='headphone'
@@ -28,8 +37,8 @@ export default function Recommend() {
               </div>
             </div>
           </NavLink>
-          <NavLink onClick={() => window.scrollTo({ top: 0 })} to='/speaker'>
-            <div className='group bg-gray rounded-xl mx-4 w-96 1250px:w-72 1150px:w-60 850px:w-48 750px:w-40 650px:w-36 650px:h-32 h-56 1150px:h-40 flex flex-col items-center justify-center cursor-pointer 550px:w-80 550px:h-40'>
+          <NavLink onClick={openMenu} to='/speaker'>
+            <div className='group bg-gray rounded-xl mx-4 w-96 1250px:w-72 1150px:w-60 850px:w-48 750px:w-40 650px:w-36 450px:w-60 650px:h-32 h-56 1150px:h-40 flex flex-col items-center justify-center cursor-pointer 550px:w-80 550px:h-40'>
               <img
                 src={speaker}
                 alt='speaker'
@@ -46,8 +55,8 @@ export default function Recommend() {
               </div>
             </div>
           </NavLink>
-          <NavLink onClick={() => window.scrollTo({ top: 0 })} to='/earphone'>
-            <div className='group bg-gray rounded-xl mx-4 w-96 1250px:w-72 1150px:w-60 850px:w-48 750px:w-40 650px:w-36 650px:h-32 h-56 1150px:h-40 flex flex-col items-center justify-center cursor-pointer 550px:w-80 550px:h-40'>
+          <NavLink onClick={openMenu} to='/earphone'>
+            <div className='group bg-gray rounded-xl mx-4 w-96 1250px:w-72 1150px:w-60 850px:w-48 750px:w-40 650px:w-36 450px:w-60 650px:h-32 h-56 1150px:h-40 flex flex-col items-center justify-center cursor-pointer 550px:w-80 550px:h-40'>
               <img
                 src={earphone}
                 alt='earphone'

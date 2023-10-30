@@ -55,6 +55,7 @@ interface productState {
     emoneyNumber: number
     pin: number
     validationCheck: boolean
+    menu: boolean
   }
 }
 
@@ -95,6 +96,7 @@ const initialState: productState = {
     emoneyNumber: 0,
     pin: 0,
     validationCheck: false,
+    menu: false,
   },
 }
 
@@ -193,6 +195,8 @@ export const productSlice = createSlice({
     checkbox: (state) => {
       state.value.emoney = !state.value.emoney
       state.value.cash = !state.value.cash
+      state.value.pin = 1
+      state.value.emoneyNumber = 1
     },
     vat: (state) => {
       state.value.vat = Math.round(state.value.total * 0.2)
@@ -210,8 +214,6 @@ export const productSlice = createSlice({
       const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
       state.value.emailValidation = emailRegex.test(action.payload)
       state.value.email = action.payload
-      console.log(state.value.email)
-      console.log(state.value.emailValidation)
     },
     phone: (state, action: PayloadAction<number>) => {
       state.value.phone = action.payload
@@ -239,6 +241,9 @@ export const productSlice = createSlice({
     },
     validationToFalse: (state) => {
       state.value.validationCheck = false
+    },
+    menu: (state) => {
+      state.value.menu = false
     },
   },
 })
@@ -284,5 +289,6 @@ export const {
   pin,
   validationCheck,
   validationToFalse,
+  menu,
 } = productSlice.actions
 export default productSlice.reducer

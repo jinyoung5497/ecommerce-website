@@ -18,17 +18,17 @@ export default function Earphone() {
     <>
       <div>
         <div className='bg-black-light text-white flex items-center justify-center h-60'>
-          <h1>earphones</h1>
+          <h1 className='450px:text-4xl'>earphones</h1>
         </div>
-        <div className='grid grid-cols-2 grid-rows-1 w-full p-20 px-40 gap-40 items-center justify-center'>
-          <img src={earphone} alt='earphone' className='w-fit' />
-          <div className='w-fit gap-y-8 flex flex-col items-start justify-center flex-wrap'>
+        <div className='grid grid-cols-2 w-full p-20 px-40 gap-40 items-center justify-center 1150px:grid-cols-1 1150px:gap-20 350px:gap-10  1150px:items-start 650px:px-20 550px:px-10'>
+          <img src={earphone} alt='earphone' className='w-fit rounded-lg' />
+          <div className='w-fit gap-y-8 350px:gap-y-4 flex flex-col items-start justify-center flex-wrap'>
             <p className='overlines'>new product</p>
             <div>
-              <h2>yx1 wireless</h2>
-              <h2>earphones</h2>
+              <h2 className='350px:text-3xl'>yx1 wireless</h2>
+              <h2 className='350px:text-3xl'>earphones</h2>
             </div>
-            <p className='text-zinc-400 text-lg'>
+            <p className='text-zinc-400 text-lg 350px:text-md'>
               Tailor your listening experience with bespoke dynamic drivers from
               the new YX1 Wireless Earphones. Enjoy incredible high-fidelity
               sound even in noisy environments with its active noise

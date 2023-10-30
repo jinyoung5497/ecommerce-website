@@ -119,24 +119,27 @@ export default function SeeProduct() {
   return (
     <>
       <div>
-        <button className='text-zinc-500 mt-20 ml-28' onClick={goBack}>
+        <button
+          className='text-zinc-500 mt-20 ml-28 550px:ml-10 550px:mt-10'
+          onClick={goBack}
+        >
           Go back
         </button>
-        <div className='flex items-center justify-center gap-32 m-20'>
+        <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
             src={products.image}
             alt='product image'
-            className='flex-1 w-1/2 rounded-xl overflow-hidden'
+            className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
           />
-          <div className='flex-1 w-1/2 flex flex-col gap-y-4'>
+          <div className='flex-1 w-1/2 650px:w-full flex flex-col gap-y-4'>
             {products.newProduct && <p className='overlines'>new product</p>}
             <div>
-              <h2 className='w-72'>{products.name}</h2>
+              <h2 className='w-72 1050px:text-3xl'>{products.name}</h2>
             </div>
-            <p className='text-zinc-500 text-lg leading-8'>
+            <p className='text-zinc-500 text-lg leading-8 1050px:text-md'>
               {products.description}
             </p>
-            <h5 className='my-10'>{`$ ${products.price.toLocaleString()}`}</h5>
+            <h5 className='my-10 1050px:my-5'>{`$ ${products.price.toLocaleString()}`}</h5>
             <div className='flex items-center justify-start'>
               <div className='text-white bg-zinc-100  subtitle  mr-5 flex items-center justify-center'>
                 <button
@@ -164,7 +167,7 @@ export default function SeeProduct() {
             </div>
           </div>
         </div>
-        <div className='flex gap-x-40 px-40 my-40'>
+        <div className='flex gap-x-40 750px:px-20 px-40 my-40 400px:my-20 1150px:flex-col 1150px:gap-y-10 550px:px-10 400px:px-5'>
           <div className='flex-[4] flex flex-col gap-y-6'>
             <h2>features</h2>
             <p className='text-zinc-500 leading-8 text-[17px]'>
@@ -185,8 +188,8 @@ export default function SeeProduct() {
             })}
           </div>
         </div>
-        <div className='flex items-center justify-center m-40 gap-7'>
-          <div className='flex flex-col basis-3/5 items-center justify-center gap-4'>
+        <div className='flex items-center justify-center m-40 400px:m-10 gap-7 1050px:mx-20 850px:mx-10 750px:flex-col'>
+          <div className='flex flex-col w-2/5  h-[26rem] items-center justify-center gap-4 750px:w-full 750px:h-full'>
             <img
               src={products.gallery1}
               alt='gallery1'
@@ -201,7 +204,7 @@ export default function SeeProduct() {
           <img
             src={products.gallery3}
             alt='gallery3'
-            className='basis-4/5 rounded-xl w-full'
+            className=' rounded-xl w-3/5 h-[26rem] 750px:w-full 750px:h-full'
           />
         </div>
       </div>

@@ -51,21 +51,21 @@ export default function OrderComplete() {
         } bg-[#00000046] w-full h-full fixed top-0 z-50 flex justify-center items-center`}
       >
         <div
-          className='flex flex-col w-[35rem] justify-center items-center p-10 bg-white rounded-3xl'
+          className='flex flex-col w-[35rem] justify-center items-center p-10 400px:p-5 bg-white rounded-3xl mx-5'
           ref={modalRef}
         >
           <div className='flex flex-col w-full items-start justify-between mb-3 gap-y-5'>
             <img src={check} alt='check' />
             <div>
-              <h2>Thank you</h2>
-              <h2>for your order</h2>
+              <h2 className='550px:text-3xl 400px:text-2xl'>Thank you</h2>
+              <h2 className='550px:text-3xl 400px:text-2xl'>for your order</h2>
             </div>
             <p className='text-zinc-500'>
               You will receive an email confirmation shortly.
             </p>
           </div>
-          <div className='bg-black rounded-xl overflow-hidden flex w-full h-full items-center justify-center my-5'>
-            <div className='bg-gray flex-1 flex flex-col items-center justify-center p-5'>
+          <div className='bg-black rounded-xl overflow-hidden flex 550px:flex-col w-full h-full items-center justify-center my-5 550px:items-start'>
+            <div className='bg-gray flex-1 flex flex-col items-center justify-center p-5 550px:p-3 550px:w-full'>
               {!viewItem && products.cart.length > 0 ? (
                 <div className='flex items-center justify-between w-full '>
                   <img
@@ -73,9 +73,11 @@ export default function OrderComplete() {
                     alt='product image'
                     className='h-16 rounded-xl '
                   />
-                  <div className='flex flex-col items-start justify-start w-full ml-5'>
-                    <div className='font-bold'>{products.cart[0].name}</div>
-                    <div className='font-bold text-zinc-400'>
+                  <div className='flex flex-col items-start justify-start w-full ml-5 550px:ml-1'>
+                    <div className='font-bold 550px:text-sm'>
+                      {products.cart[0].name}
+                    </div>
+                    <div className='font-bold text-zinc-400 550px:text-sm'>
                       $ {products.cart[0].price.toLocaleString()}
                     </div>
                   </div>
