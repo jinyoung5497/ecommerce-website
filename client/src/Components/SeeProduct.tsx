@@ -43,7 +43,9 @@ export default function SeeProduct() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/product/${products.getProductId}`)
+      .get(
+        `https://ecommerce-website-blush-psi.vercel.app/api/product/${products.getProductId}`
+      )
       .then((res) => {
         const newSrc = res.data.image.desktop.slice(1)
         dispatch(newProduct(res.data.new))
@@ -67,7 +69,7 @@ export default function SeeProduct() {
         console.error(error)
       })
     axios
-      .get(`http://localhost:4000/api/product`)
+      .get(`https://ecommerce-website-blush-psi.vercel.app/api/product`)
       .then((res) => {
         const newImage = res.data.map(
           (value: IrecommendImage) => value.image.desktop
