@@ -58,11 +58,11 @@ export default function SeeProduct() {
         dispatch(image(`${newSrc}`))
         dispatch(features(res.data.features))
         dispatch(includes(res.data.includes))
-        const gal1 = res.data.gallery.first.desktop.slice(1)
+        const gal1 = res.data.gallery.first.desktop
         dispatch(gallery1(`${gal1}`))
-        const gal2 = res.data.gallery.second.desktop.slice(1)
+        const gal2 = res.data.gallery.second.desktop
         dispatch(gallery2(`${gal2}`))
-        const gal3 = res.data.gallery.third.desktop.slice(1)
+        const gal3 = res.data.gallery.third.desktop
         dispatch(gallery3(`${gal3}`))
         dispatch(id(res.data.id))
         console.log(res.data)
@@ -128,7 +128,7 @@ export default function SeeProduct() {
         </button>
         <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
-            src='https://ecommerce-website-blush-psi.vercel.app/assets/image-category-thumbnail-earphones-e15eeed7.png'
+            src={products.image}
             alt='product image'
             className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
           />
