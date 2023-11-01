@@ -44,7 +44,7 @@ export default function SeeProduct() {
   useEffect(() => {
     axios
       .get(
-        `https://https://ecommerce-website-blush-psi.vercel.app/api/product/${products.getProductId}`
+        `https://ecommerce-server-p2w2.onrender.com/api/product/${products.getProductId}`
       )
       .then((res) => {
         const newSrc = res.data.image.desktop.slice(1)
