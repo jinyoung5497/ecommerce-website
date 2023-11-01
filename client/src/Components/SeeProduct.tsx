@@ -23,7 +23,7 @@ import {
   resetCounter,
   total,
 } from '../slices/productSlice'
-import { render } from 'react-dom'
+import testImage from '../assets/product-xx59-headphones/desktop/image-gallery-1.jpg'
 
 export default function SeeProduct() {
   const dispatch = useDispatch()
@@ -58,11 +58,11 @@ export default function SeeProduct() {
         dispatch(image(`${newSrc}`))
         dispatch(features(res.data.features))
         dispatch(includes(res.data.includes))
-        const gal1 = res.data.gallery.first.desktop
+        const gal1 = res.data.gallery.first.desktop.slice(1)
         dispatch(gallery1(`${gal1}`))
-        const gal2 = res.data.gallery.second.desktop
+        const gal2 = res.data.gallery.second.desktop.slice(1)
         dispatch(gallery2(`${gal2}`))
-        const gal3 = res.data.gallery.third.desktop
+        const gal3 = res.data.gallery.third.desktop.slice(1)
         dispatch(gallery3(`${gal3}`))
         dispatch(id(res.data.id))
         console.log(res.data)
@@ -128,7 +128,9 @@ export default function SeeProduct() {
         </button>
         <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
-            src={products.image}
+            src={
+              'https://ecommerce-website-blush-psi.vercel.app/assets/product-xx59-headphones/desktop/image-gallery-1.jpg'
+            }
             alt='product image'
             className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
           />
