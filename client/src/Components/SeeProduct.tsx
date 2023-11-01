@@ -23,7 +23,7 @@ import {
   resetCounter,
   total,
 } from '../slices/productSlice'
-import testImage from '../assets/product-xx59-headphones/desktop/image-gallery-1.jpg'
+import testImage from '../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg'
 
 export default function SeeProduct() {
   const dispatch = useDispatch()
@@ -128,7 +128,9 @@ export default function SeeProduct() {
         </button>
         <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
-            src={testImage}
+            src={
+              '../assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg'
+            }
             alt='product image'
             className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
           />
