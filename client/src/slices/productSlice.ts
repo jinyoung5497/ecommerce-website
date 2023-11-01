@@ -135,7 +135,6 @@ export const productSlice = createSlice({
     },
     gallery1: (state, action: PayloadAction<string>) => {
       state.value.gallery1 = action.payload
-      console.log(state.value.gallery1)
     },
     gallery2: (state, action: PayloadAction<string>) => {
       state.value.gallery2 = action.payload
