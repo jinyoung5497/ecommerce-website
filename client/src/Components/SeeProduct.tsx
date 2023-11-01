@@ -44,7 +44,7 @@ export default function SeeProduct() {
   useEffect(() => {
     axios
       .get(
-        `https://ecommerce-server-p2w2.onrender.com/api/product/${products.getProductId}`
+        `https://https://ecommerce-website-blush-psi.vercel.app/api/product/${products.getProductId}`
       )
       .then((res) => {
         const newSrc = res.data.image.desktop.slice(1)
@@ -57,7 +57,7 @@ export default function SeeProduct() {
         dispatch(features(res.data.features))
         dispatch(includes(res.data.includes))
         const gal1 = res.data.gallery.first.desktop.slice(1)
-        dispatch(gallery1(`.${gal1}`))
+        dispatch(gallery1(`src${gal1}`))
         const gal2 = res.data.gallery.second.desktop.slice(1)
         dispatch(gallery2(`src${gal2}`))
         const gal3 = res.data.gallery.third.desktop.slice(1)
