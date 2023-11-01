@@ -57,7 +57,7 @@ export default function SeeProduct() {
         dispatch(features(res.data.features))
         dispatch(includes(res.data.includes))
         const gal1 = res.data.gallery.first.desktop.slice(1)
-        dispatch(gallery1(`src${gal1}`))
+        dispatch(gallery1(`.${gal1}`))
         const gal2 = res.data.gallery.second.desktop.slice(1)
         dispatch(gallery2(`src${gal2}`))
         const gal3 = res.data.gallery.third.desktop.slice(1)
