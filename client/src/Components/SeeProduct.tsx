@@ -53,15 +53,23 @@ export default function SeeProduct() {
         dispatch(description(res.data.description))
         const newPrice = res.data.price
         dispatch(price(newPrice))
-        dispatch(image(`https://ecommerce-server-p2w2.onrender.com${newSrc}`))
+        dispatch(
+          image(`https://ecommerce-server-p2w2.onrender.com/src${newSrc}`)
+        )
         dispatch(features(res.data.features))
         dispatch(includes(res.data.includes))
         const gal1 = res.data.gallery.first.desktop.slice(1)
-        dispatch(gallery1(`https://ecommerce-server-p2w2.onrender.com${gal1}`))
+        dispatch(
+          gallery1(`https://ecommerce-server-p2w2.onrender.com/src${gal1}`)
+        )
         const gal2 = res.data.gallery.second.desktop.slice(1)
-        dispatch(gallery2(`https://ecommerce-server-p2w2.onrender.com${gal2}`))
+        dispatch(
+          gallery2(`https://ecommerce-server-p2w2.onrender.com/src${gal2}`)
+        )
         const gal3 = res.data.gallery.third.desktop.slice(1)
-        dispatch(gallery3(`https://ecommerce-server-p2w2.onrender.com${gal3}`))
+        dispatch(
+          gallery3(`https://ecommerce-server-p2w2.onrender.com/src${gal3}`)
+        )
         dispatch(id(res.data.id))
         console.log(res.data)
       })
