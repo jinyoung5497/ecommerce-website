@@ -44,7 +44,7 @@ export default function SeeProduct() {
   useEffect(() => {
     axios
       .get(
-        `https://ecommerce-website-server.vercel.app/api/product/${products.getProductId}`
+        `https://ecommerce-server-p2w2.onrender.com/product/${products.getProductId}`
       )
       .then((res) => {
         const newSrc = res.data.image.desktop.slice(1)
@@ -69,7 +69,7 @@ export default function SeeProduct() {
         console.error(error)
       })
     axios
-      .get(`https://ecommerce-website-server.vercel.app/api/product`)
+      .get(`https://ecommerce-server-p2w2.onrender.com.app/api/product`)
       .then((res) => {
         const newImage = res.data.map(
           (value: IrecommendImage) => value.image.desktop
