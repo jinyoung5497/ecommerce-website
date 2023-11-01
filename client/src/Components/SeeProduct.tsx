@@ -130,7 +130,7 @@ export default function SeeProduct() {
         <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
             src={
-              'https://ecommerce-server-p2w2.onrender.com/src/assets/product-xx59-headphones/desktop/image-product.jpg'
+              'https://ecommerce-website-blush-psi.vercel.app/src/assets/product-xx59-headphones/desktop/image-product.jpg'
             }
             alt='product image'
             className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
