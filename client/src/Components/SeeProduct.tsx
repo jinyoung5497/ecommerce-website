@@ -23,6 +23,7 @@ import {
   resetCounter,
   total,
 } from '../slices/productSlice'
+import { render } from 'react-dom'
 
 export default function SeeProduct() {
   const dispatch = useDispatch()
@@ -41,11 +42,12 @@ export default function SeeProduct() {
     _id: string
   }
 
+  const url = 'http://localhost:4000'
+  const renderUrl = 'https://ecommerce-server-p2w2.onrender.com'
+
   useEffect(() => {
     axios
-      .get(
-        `https://ecommerce-server-p2w2.onrender.com/api/product/${products.getProductId}`
-      )
+      .get(`${renderUrl}/api/product/${products.getProductId}`)
       .then((res) => {
         const newSrc = res.data.image.desktop.slice(1)
         dispatch(newProduct(res.data.new))
@@ -69,7 +71,7 @@ export default function SeeProduct() {
         console.error(error)
       })
     axios
-      .get(`https://ecommerce-server-p2w2.onrender.com/api/product`)
+      .get(`${renderUrl}/api/product`)
       .then((res) => {
         const newImage = res.data.map(
           (value: IrecommendImage) => value.image.desktop
@@ -87,9 +89,6 @@ export default function SeeProduct() {
           return { image: value, name: newName[index], _id: newId[index] }
         })
         dispatch(recommend(result))
-
-        // console.log(products.id)
-        // console.log(result)
       })
       .catch((error) => {
         console.error(error)
@@ -129,7 +128,7 @@ export default function SeeProduct() {
         </button>
         <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
-            src='https://ecommerce-website-blush-psi.vercel.app/src/assets/product-xx59-headphones/desktop/image-product.jpg'
+            src='https://ecommerce-website-blush-psi.vercel.app/assets/image-category-thumbnail-earphones-e15eeed7.png'
             alt='product image'
             className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
           />
