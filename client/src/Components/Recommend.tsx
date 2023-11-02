@@ -33,7 +33,7 @@ export default function Recommend() {
                 className='flex flex-col items-center justify-between gap-5 flex-1 h-[25rem] 750px:h-[20rem]'
               >
                 <img
-                  src={`src${newImage}`}
+                  src={`${newImage}`}
                   alt='product image'
                   className='rounded-xl 550px:h-[20rem]'
                 />
