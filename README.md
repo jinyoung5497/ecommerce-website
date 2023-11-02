@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![ecommerce_001](./assets/screenshot/ecommerce_001.png)
+![ecommerce_001](./client/src/assets/screenshot/ecommerce_001.png)
 
 ### Links
 
