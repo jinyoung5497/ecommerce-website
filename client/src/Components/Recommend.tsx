@@ -35,7 +35,7 @@ export default function Recommend() {
                 <img
                   src={`${newImage}`}
                   alt='product image'
-                  className='rounded-xl 550px:h-[20rem]'
+                  className='rounded-xl 550px:h-[20rem] max-w-xs 1250px:w-full'
                 />
                 <h5 className='text-center 1050px:text-lg'>{value.name}</h5>
                 <button

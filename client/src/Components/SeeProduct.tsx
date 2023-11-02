@@ -44,6 +44,8 @@ export default function SeeProduct() {
   const url = 'http://localhost:4000'
   const renderUrl = 'https://ecommerce-server-p2w2.onrender.com'
 
+  // VERCEL IMAGE NOT SHOWING FIX :: Move assets folder to public folder
+
   useEffect(() => {
     axios
       .get(`${renderUrl}/api/product/${products.getProductId}`)
@@ -193,18 +195,18 @@ export default function SeeProduct() {
             <img
               src={products.gallery1}
               alt='gallery1'
-              className='w-full rounded-xl'
+              className='1350px:w-full max-w-xl rounded-xl'
             />
             <img
               src={products.gallery2}
               alt='gallery2'
-              className='w-full rounded-xl'
+              className='1350px:w-full max-w-xl rounded-xl'
             />
           </div>
           <img
             src={products.gallery3}
             alt='gallery3'
-            className=' rounded-xl w-3/5 h-[26rem] 750px:w-full 750px:h-full'
+            className=' rounded-xl w-3/5 max-w-xl h-[26rem] 750px:w-full 750px:h-full'
           />
         </div>
       </div>
