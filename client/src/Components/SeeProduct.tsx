@@ -129,7 +129,7 @@ export default function SeeProduct() {
         <div className='flex items-center justify-center gap-32 m-20 1050px:gap-20 1050px:m-10 850px:m-5 850px:gap-10 650px:flex-col'>
           <img
             src={
-              'https://ecommerce-website-blush-psi.vercel.app/api/image?url=/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1&w=3840&q=75.jpg'
+              'https://ecommerce-website-blush-psi.vercel.app/api/image?url=/assets/product-xx99-mark-two-headphones/desktop/image-gallery-1.jpg'
             }
             alt='product image'
             className='flex-1 w-1/2 650px:w-3/4 rounded-xl overflow-hidden'
